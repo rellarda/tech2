@@ -4,9 +4,13 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+using std::cin;
+using std::cout;
+using std::endl;
 using std::string;
 using std::istream;
 using std::ostream;
+using std::swap;    
 
 class Route 
 {

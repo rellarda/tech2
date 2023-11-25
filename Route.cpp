@@ -1,7 +1,6 @@
 #include "Route.h"
 Route::Route()
 {
-    std::cout << "hello" << std::endl; 
 
 };
 Route::~Route()
@@ -11,17 +10,17 @@ Route::~Route()
 
 string Route::GetStartingPoint()
 {
-    return this->startingPoint;
+    return startingPoint;
 };
 
 string Route::GetFinalDestination()
 {
-    return this->finalDestination;
+    return finalDestination;
 };
 
 int Route::GetNumber()
 {
-    return this->number;
+    return number;
 };
 
 void Route::SetStartingPoint(string startingPoint)
@@ -39,13 +38,33 @@ void Route::SetNumber(int number)
     this->number = number;
 };
     
-istream& operator >>(istream& is, Route& D)
+istream& operator >>(istream& is, Route& route)
 {
+    string startingPoint;
+    string finalDestination;
+    int number; 
+    
+    cout << "Starting point: ";
+    is >> startingPoint;
+    route.SetStartingPoint(startingPoint);
+    
+    cout << "Final destination: ";
+    is >> finalDestination;
+    route.SetFinalDestination(finalDestination);
 
+    cout << "Number: ";
+    is >> number;
+    route.SetNumber(number);
+
+    return is;
 };
 
-ostream& operator <<(ostream& os, const Route& D)
+ostream& operator <<(ostream& os, const Route& route)
 {
+    os << "Starting point: " << route.startingPoint << endl;
+    os << "Final destination: " << route.finalDestination << endl;
+    os << "Number: " << route.number << endl;
 
+    return os;
 };
 
